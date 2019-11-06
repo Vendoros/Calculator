@@ -28,8 +28,8 @@ public class Converter {
     }
 
     public static String arabicToRoman(int number) {
-        if ((number <= 0) || (number > 10)) {
-            throw new IllegalArgumentException(number + " не в диапозоне значений (1,10]");
+        if ((number <= 0) || (number > 4000)) {
+            throw new IllegalArgumentException(number + " не в диапозоне значений [0,4000]");
         }
 
         List<RomanNumeral> romanNumerals = RomanNumeral.getReverseSortedValues();
