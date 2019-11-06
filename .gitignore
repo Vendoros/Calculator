@@ -23,5 +23,5 @@
 hs_err_pid*
 /.idea/
 /.out/
+/.Tests/
 /Calculator.iml
-/scr/META-INF/
