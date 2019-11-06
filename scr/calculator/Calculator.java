@@ -2,19 +2,23 @@ package calculator;
 
 import java.util.Scanner;
 
+import calculator.converter.*;
+
 public class Calculator {
 
-    private static String operation;
+    private String operation;
 
-    public static void start() {
+    public void start() {
         operation = input();
-        output(operation);
+        // TODO: 06.11.2019 проверка строки
 
-        //TODO
+        output(operation);
+        // TODO: 06.11.2019 вычисление результата
 
     }
 
-    private static String input(){
+    //получаем строку из консоли
+    private String input() {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите операцию: ");
         String str = in.nextLine();
@@ -22,7 +26,8 @@ public class Calculator {
         return str;
     }
 
-    private static void output(String str){
+    //выводит строку на консоль
+    private void output(String str) {
         System.out.println("\u001b[32m");
         System.out.printf("Вычисляем: %s \n", str);
         System.out.println("\u001b[0m");
