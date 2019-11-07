@@ -11,18 +11,24 @@ import calculator.Calculator;
 
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String... args) {
+import static calculator.validator.IsValid.initValidate;
 
+public class Main {
+
+
+    public static void main(String... args) {
+        System.out.print("\u001b[32m");
         System.out.print("Введите операцию: ");
+        System.out.print("\u001b[0m");
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         in.close();
 
-        if (!str.isEmpty()) {
-            System.out.println("Ответ:" + new Calculator().initCalc(str));
+
+        if (initValidate(str)) {
+            System.out.println("Ответ:" + new Calculator(str).initCalc());
         } else {
-            System.err.println("Введена пустая строка. Заверщение работы.");
+            System.err.println("Некорректные входные данные. Заверщение работы.");
             System.exit(1);
         }
     }

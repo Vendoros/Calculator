@@ -21,7 +21,14 @@ public class Converter {
             }
         }
         if (romanNumeral.length() > 0) {
-            throw new IllegalArgumentException(input + " не могу конвертировать в римские цифры");
+            try {
+                Integer.parseInt(input);
+            } catch (IllegalArgumentException e) {
+                System.err.println("Операнд ["+input+"] не принадлежит к римским обозначениям цифр, либо некоректен.");
+            }
+
+
+            return -1;
         }
 
         return result;

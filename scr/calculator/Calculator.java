@@ -2,27 +2,34 @@ package calculator;
 
 import calculator.parser.Parser;
 import calculator.converter.Converter;
-import calculator.converter.RomanNumeral;
 
 public class Calculator {
 
 
-    public String initCalc(String str) {
-        String result = "";
+    private final String leftOperand;
+    private final char operator;
+    private final String rightOperand;
 
-        // TODO: 06.11.2019 проверка строки на валидность
+
+    public Calculator(String str) {
         Parser.parse(str);
+        this.leftOperand = Parser.getLeftOperand();
+        this.operator = Parser.getOperator();
+        this.rightOperand = Parser.getRightOperand();
+    }
 
-        if (isArabic(Parser.getLeftOperand(), Parser.getRightOperand())) {
-            result += calculateToArabic(Parser.getLeftOperand(), Parser.getOperator(), Parser.getRightOperand());
+    public String initCalc() {
+
+        String result = "";
+        if (isArabic()) {
+            result += calculateToArabic();
         } else {
-            result +=  Converter.arabicToRoman(calculateToRoman(Parser.getLeftOperand(), Parser.getOperator(), Parser.getRightOperand()));
+            result += Converter.arabicToRoman(calculateToRoman());
         }
-
         return result;
     }
 
-    private int calculateToRoman(String leftOperand, char operator, String rightOperand) {
+    private int calculateToRoman() {
         output("" + leftOperand + operator + rightOperand);
         switch (operator) {
             case '+':
@@ -40,7 +47,7 @@ public class Calculator {
         return 0;
     }
 
-    private static boolean isArabic(String leftOperand, String rightOperand) {
+    private boolean isArabic() {
         try {
             Integer.parseInt(leftOperand);
             Integer.parseInt(rightOperand);
@@ -51,7 +58,7 @@ public class Calculator {
     }
 
 
-    private int calculateToArabic(String leftOperand, char operator, String rightOperand) {
+    private int calculateToArabic() {
         output("" + leftOperand + operator + rightOperand);
         switch (operator) {
             case '+':

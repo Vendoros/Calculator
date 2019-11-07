@@ -2,12 +2,9 @@ package calculator.parser;
 
 public class Parser {
 
-    private static String leftOperand;
-    private static char operator ;
-    private static String rightOperand;
-
-    public Parser() {
-    }
+    private static String leftOperand = null;
+    private static char operator;
+    private static String rightOperand = null;
 
     public static String getLeftOperand() {
         return leftOperand;
@@ -22,26 +19,30 @@ public class Parser {
     }
 
     public static void parse(String str) {
-        str = str.replaceAll("\\s+", "").toUpperCase();
+        str = toValidFormat(str);
         getOperand(str);
         getOperator(str);
     }
 
+    public static String toValidFormat(String str) {
+        str = str.replaceAll("\\s+", "").toUpperCase();
+        return str;
+    }
 
 
     private static void getOperator(String str) {
-        if(str.contains("+")){
+        if (str.contains("+")) {
             operator = '+';
-        }else if (str.contains("-")){
+        } else if (str.contains("-")) {
             operator = '-';
-        }else if (str.contains("*")){
+        } else if (str.contains("*")) {
             operator = '*';
-        }else if (str.contains("/")){
+        } else if (str.contains("/")) {
             operator = '/';
         }
     }
 
-    private static void getOperand(String str) {
+    public static void getOperand(String str) {
         try {
             String[] temp = str.split("[/*+-]");
             leftOperand = temp[0];
@@ -51,4 +52,6 @@ public class Parser {
             System.exit(1);
         }
     }
+
+
 }
