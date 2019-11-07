@@ -13,19 +13,13 @@ public class Calculator {
         // TODO: 06.11.2019 проверка строки на валидность
         Parser.parse(str);
 
-
-        // TODO: 06.11.2019 вычисление результата для арабских цифр DONE
         if (isArabic(Parser.getLeftOperand(), Parser.getRightOperand())) {
             result += calculateToArabic(Parser.getLeftOperand(), Parser.getOperator(), Parser.getRightOperand());
         } else {
-            // TODO: 06.11.2019 вычисление результата для римских цифр
             result +=  Converter.arabicToRoman(calculateToRoman(Parser.getLeftOperand(), Parser.getOperator(), Parser.getRightOperand()));
         }
-        //calculateToRoman(Parser.getLeftOperand(), Parser.getOperator(), Parser.getRightOperand())
-
 
         return result;
-
     }
 
     private int calculateToRoman(String leftOperand, char operator, String rightOperand) {
@@ -40,8 +34,9 @@ public class Calculator {
             case '/':
                 return Converter.romanToArabic(leftOperand) / Converter.romanToArabic(rightOperand);
             default:
+                System.err.println("Не могу распознать оператор. Завершение работы.");
+                System.exit(1);
         }
-
         return 0;
     }
 

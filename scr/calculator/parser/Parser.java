@@ -9,7 +9,6 @@ public class Parser {
     public Parser() {
     }
 
-    // TODO: 06.11.2019 приведение типов геторов
     public static String getLeftOperand() {
         return leftOperand;
     }
@@ -26,7 +25,6 @@ public class Parser {
         str = str.replaceAll("\\s+", "").toUpperCase();
         getOperand(str);
         getOperator(str);
-
     }
 
 

@@ -11,8 +11,6 @@ import calculator.Calculator;
 
 import java.util.Scanner;
 
-//System.out.println("\u001b[32m"); желтый
-
 public class Main {
     public static void main(String... args) {
 
@@ -21,10 +19,11 @@ public class Main {
         String str = in.nextLine();
         in.close();
 
-        //if (!str.isEmpty()) {
+        if (!str.isEmpty()) {
             System.out.println("Ответ:" + new Calculator().initCalc(str));
-        //} else {
-            //System.err.println("Введена пустая строка. Заверщение работы.");
-        //}
+        } else {
+            System.err.println("Введена пустая строка. Заверщение работы.");
+            System.exit(1);
+        }
     }
 }
