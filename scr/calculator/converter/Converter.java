@@ -23,11 +23,9 @@ public class Converter {
         if (romanNumeral.length() > 0) {
             try {
                 Integer.parseInt(input);
-            } catch (IllegalArgumentException e) {
-                System.err.println("Операнд ["+input+"] не принадлежит к римским обозначениям цифр, либо некоректен.");
+            } catch (IllegalArgumentException ignored) {
+
             }
-
-
             return -1;
         }
 
