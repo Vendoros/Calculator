@@ -4,8 +4,6 @@ import calculator.converter.Converter;
 import calculator.parser.Parser;
 
 public class IsValid {
-
-
     private static final String letterRegex = "^[A-zА-я&&[^IVXLCDM_`^\\[\\]]]+$";
     private static final String specSymbolRegex = "^[^A-zА-я0-9]+$";
     private static final String validFormatRegex = "^.+[/*+-].+$";
@@ -15,7 +13,6 @@ public class IsValid {
     private int i, j, k;
 
     public IsValid() {
-
     }
 
     public IsValid(String expression) {
@@ -40,8 +37,6 @@ public class IsValid {
                 }
             }
         }
-
-
         return false;
     }
 
@@ -109,12 +104,6 @@ public class IsValid {
     }
 
     private boolean isRoman(String operand) {
-        /*
-                if (Converter.romanToArabic(operand) == -1) {
-            return false;
-        }
-        return true;
-         */
         return Converter.romanToArabic(operand) != -1;
     }
 
@@ -201,7 +190,6 @@ public class IsValid {
                 System.err.println("Правый операнд [" + rightOperand + "] является арабским символом числа");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.3.1
                 return false;
-
             }
             k++;
             if (isRoman(rightOperand)) {
@@ -254,7 +242,6 @@ public class IsValid {
             if (rightOperand.matches(letterRegex)) {
                 System.err.println("Правый операнд [" + rightOperand + "] является буквой не относящейся к римским обозначениям чисел.");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.4.3
-
             }
             k++;
             if (rightOperand.matches(specSymbolRegex)) {
@@ -264,7 +251,6 @@ public class IsValid {
                 k++;
                 System.err.println("Правый операнд [" + rightOperand + "] является аномалией.");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.4.5
-
             }
             return false;
         }
@@ -305,5 +291,4 @@ public class IsValid {
         System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//2.1.1
         return false;
     }
-
 }
