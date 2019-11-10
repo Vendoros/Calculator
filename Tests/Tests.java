@@ -2,9 +2,6 @@ import calculator.Calculator;
 import calculator.validator.IsValid;
 import org.junit.Test;
 
-//import static org.assertj.core.api.Assertions.catchThrowable;
-//import static org.assertj.core.api.Assertions.assertThat;
-import static calculator.validator.IsValid.*;
 import static org.junit.Assert.*;
 
 public class Tests {

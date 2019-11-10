@@ -42,7 +42,7 @@ public class Calculator {
                 return Converter.romanToArabic(leftOperand) / Converter.romanToArabic(rightOperand);
             default:
                 System.err.println("Не могу распознать оператор. Завершение работы.");
-                System.exit(1);
+                System.exit(-1);
         }
         return 0;
     }

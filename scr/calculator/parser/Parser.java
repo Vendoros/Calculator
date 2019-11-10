@@ -49,7 +49,7 @@ public class Parser {
             rightOperand = temp[1];
         } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("Индекс [i] находится вне границ значений. Вероятно вы ввели пустую строку.\nЗавершение работы");
-            System.exit(1);
+            System.exit(-1);
         }
     }
 
