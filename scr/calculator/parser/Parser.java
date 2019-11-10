@@ -37,14 +37,14 @@ public class Parser {
             operator = '-';
         } else if (str.contains("*")) {
             operator = '*';
-        } else if (str.contains("/")) {
+        } else if (str.contains("/") || str.contains(":")) {
             operator = '/';
         }
     }
 
     public static void getOperand(String str) {
         try {
-            String[] temp = str.split("[/*+-]");
+            String[] temp = str.split("[/*+\\-:]");
             leftOperand = temp[0];
             rightOperand = temp[1];
         } catch (ArrayIndexOutOfBoundsException e) {

@@ -53,17 +53,19 @@ public class IsValid {
                         return true;
                     }
                 }
-                System.err.println("Левое число [" + leftOperand + "] не принадлежит допустимому диапазону значений.");
-
+                System.err.println("Левый операнд [" + leftOperand + "] не принадлежит допустимому диапазону значений.");
                 if (!(rightNumber <= 10 & rightNumber > 0)) {
-                    System.err.println("Правое число [" + rightOperand + "] не принадлежит допустимому диапазону значений.");
+                    System.err.println("Правый операнд [" + rightOperand + "] не принадлежит допустимому диапазону значений.");
+                    System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.1.1
+                }else {
+                    k++;
+                    System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.1.2
                 }
-                System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.1.1
                 return false;
             }
             k++;
             System.err.println("Аномалия.");
-            System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.1.2
+            System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.1.3
         }
         j++;
         if (isRoman(leftOperand)) {
@@ -75,16 +77,19 @@ public class IsValid {
                         return true;
                     }
                 }
-                System.err.println("Левое число [" + leftOperand + "] не принадлежит допустимому диапазону значений.");
+                System.err.println("Левый операнд [" + leftOperand + "] не принадлежит допустимому диапазону значений.");
                 if (!(rightNumber <= 10)) {
-                    System.err.println("Правое число [" + rightOperand + "] не принадлежит допустимому диапазону значений.");
+                    System.err.println("Правый операнд [" + rightOperand + "] не принадлежит допустимому диапазону значений.");
+                    System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.2.1
+                }else {
+                    k++;
+                    System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.2.2
                 }
-                System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.2.1
                 return false;
             }
             k++;
             System.err.println("Аномалия.");
-            System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.2.2
+            System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//5.2.3
             return false;
         }
         j++;
@@ -177,7 +182,7 @@ public class IsValid {
                 System.err.println("Разный тип операндов.");
                 System.err.println("Левый операнд [" + leftOperand + "] римским символом числа.");
                 System.err.println("Правый операнд [" + rightOperand + "] является аномалией.");
-                System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.2.3
+                System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.2.4
                 return false;
             }
         }
@@ -192,7 +197,7 @@ public class IsValid {
                 return false;
             }
             k++;
-            if (isRoman(rightOperand)) {
+            if (isRoman(rightOperand )) {
                 System.err.println("Разный тип операндов.");
                 System.err.println("Левый операнд [" + leftOperand + "] является буквой не относящейся к римским обозначениям чисел.");
                 System.err.println("Правый операнд [" + rightOperand + "] является римским символом числа.");
@@ -219,7 +224,7 @@ public class IsValid {
                 System.err.println("Разный тип операндов.");
                 System.err.println("Левый операнд [" + leftOperand + "] является буквой не относящейся к римским обозначениям чисел.");
                 System.err.println("Правый операнд [" + rightOperand + "] является аномалией.");
-                System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.3.4
+                System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.3.5
                 return false;
             }
         }
@@ -231,22 +236,25 @@ public class IsValid {
             if (isArabic(rightOperand)) {
                 System.err.println("Правый операнд [" + rightOperand + "] является арабским символом числа.");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.4.1
+                return false;
             }
             k++;
             if (isRoman(rightOperand)) {
                 System.err.println("Правый операнд [" + rightOperand + "] является римским символом числа.");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.4.2
-
+                return false;
             }
             k++;
             if (rightOperand.matches(letterRegex)) {
                 System.err.println("Правый операнд [" + rightOperand + "] является буквой не относящейся к римским обозначениям чисел.");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.4.3
+                return false;
             }
             k++;
             if (rightOperand.matches(specSymbolRegex)) {
                 System.err.println("Правый операнд [" + rightOperand + "] является не буквенно-цифровым символом.");
                 System.err.println("Код ошибки [" + i + "." + j + "." + k + "]");//4.4.4
+                return false;
             } else {
                 k++;
                 System.err.println("Правый операнд [" + rightOperand + "] является аномалией.");
